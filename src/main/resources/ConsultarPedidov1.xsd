@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.eicon.com.br/EBO/Eicon/v1" 
+	targetNamespace="http://www.eicon.com.br/EBO/Eicon/v1" elementFormDefault="qualified" 
+	attributeFormDefault="qualified" version="1.0">
+ 
+    <xsd:complexType name="ProdutoType">
+        <xsd:sequence>
+            <xsd:element name="id" type="xsd:int"/>
+            <xsd:element name="descricao" type="xsd:string"/>
+            <xsd:element name="ativo" type="xsd:boolean"/>
+        </xsd:sequence>
+   	</xsd:complexType>
+    
+ 	<xsd:complexType name="PedidoItemType">
+		<xsd:sequence>
+			<xsd:element name="produto" type="tns:ProdutoType" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="ClienteType">
+        <xsd:sequence>
+            <xsd:element name="id" type="xsd:int"/>
+            <xsd:element name="nome" type="xsd:string"/>
+            <xsd:element name="sobrenome" type="xsd:string"/>
+            <xsd:element name="data-nascimento" type="xsd:date"/>
+            <xsd:element name="data-inclusao" type="xsd:date"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+	<xsd:complexType name="StatusType">
+        <xsd:sequence>
+            <xsd:element name="id" type="xsd:int"/>
+            <xsd:element name="descricao" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+ 	<xsd:complexType name="PedidoType">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:int" />
+			<xsd:element name="data-pedido" type="xsd:date" />
+			<xsd:element name="cliente" type="tns:ClienteType" />
+			<xsd:element name="status" type="tns:StatusType" />
+			<xsd:element name="itens-pedido" type="tns:ArrayOfPedidoItemType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="ArrayOfPedidoItemType">
+		<xsd:sequence>
+			<xsd:element name="item-pedido" type="tns:PedidoItemType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+ 	
+    <xsd:element name="ConsultarPedidoRequest">
+	    <xsd:complexType>
+	        <xsd:sequence>
+				<xsd:element name="pedido-id" type="xsd:int" />
+				<xsd:element name="data-pedido" type="xsd:date" />
+				<xsd:element name="cliente-id" type="xsd:int" />
+	        </xsd:sequence>
+	    </xsd:complexType>
+    </xsd:element>
+     
+    <xsd:element name="ConsultarPedidoResponse">
+	    <xsd:complexType>
+	        <xsd:sequence>
+	            <xsd:element name="pedido" type="tns:PedidoType"/>
+	        </xsd:sequence>
+	    </xsd:complexType>
+    </xsd:element>
+     
+</xsd:schema>
