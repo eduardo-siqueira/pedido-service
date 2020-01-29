@@ -2,6 +2,7 @@ package br.com.eicon.pedido.util;
 
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.TimeZone;
 
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -9,9 +10,13 @@ import javax.xml.datatype.XMLGregorianCalendar;
 public class DateUtil {
 
 	public static XMLGregorianCalendar newXMLGregorianCalendar() {
-		Date date = new Date();
+		return newXMLGregorianCalendar(new Date());
+	}
+
+	public static XMLGregorianCalendar newXMLGregorianCalendar(Date date) {
 		XMLGregorianCalendar xmlDate = null;
 		GregorianCalendar gc = new GregorianCalendar();
+		gc.setTimeZone(TimeZone.getTimeZone("UTC")); 
 
 		gc.setTime(date);
 
@@ -24,5 +29,4 @@ public class DateUtil {
 		
 		return xmlDate;
 	}
-	
 }

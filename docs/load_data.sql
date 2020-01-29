@@ -1,3 +1,5 @@
+use eicon;
+
 -- tabela status
 insert into status (descricao) values ('Aberto');
 insert into status (descricao) values ('Enviado');
@@ -44,7 +46,7 @@ insert into pedido (data_pedido, valor_total, cliente_id, status_id) values ('20
 insert into pedido_item (quantidade, valor, pedido_id, produto_id) values (30, 12.01, 3, 7);
 insert into pedido_item (quantidade, valor, pedido_id, produto_id) values (30, 43.44, 3, 8);
 insert into pedido_item (quantidade, valor, pedido_id, produto_id) values (30, 56.54, 3, 9);
-insert into pedido_item (quantidade, valor, pedido_id, produto_id) values (30, 87.98, 3, 10);
+insert into pedido_item (quantidade, valor, pedido_id, produto_id) values (30, 87.98, 3, 10)
 
 insert into pedido (data_pedido, valor_total, cliente_id, status_id) values ('2019-10-7', 65.78, 4, 4);
 insert into pedido_item (quantidade, valor, pedido_id, produto_id) values (30, 34.01, 4, 1);

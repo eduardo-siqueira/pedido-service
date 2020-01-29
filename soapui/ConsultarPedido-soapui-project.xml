@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="56f1cf1c-1bee-47f1-92cf-743bf9fbd28c" activeEnvironment="Default" name="ConsultarPedido" resourceRoot="" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="d86fb243-2368-4e59-90f8-90d4db57ee84" wsaVersion="NONE" name="PedidoPortSoap11" type="wsdl" bindingName="{http://www.eicon.com.br/EBO/Eicon/v1}PedidoPortSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/service/ConsultarPedido.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/service/ConsultarPedido.wsdl"><con:part><con:url>http://localhost:8080/service/ConsultarPedido.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.eicon.com.br/EBO/Eicon/v1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.eicon.com.br/EBO/Eicon/v1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.eicon.com.br/EBO/Eicon/v1">
+  <wsdl:types>
+    <xsd:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://www.eicon.com.br/EBO/Eicon/v1" version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:complexType name="ProdutoType">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:int"/>
+          <xsd:element name="descricao" type="xsd:string"/>
+          <xsd:element name="ativo" type="xsd:boolean"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PedidoItemType">
+        <xsd:sequence>
+          <xsd:element name="produto" type="tns:ProdutoType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ClienteType">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:int"/>
+          <xsd:element name="nome" type="xsd:string"/>
+          <xsd:element name="sobrenome" type="xsd:string"/>
+          <xsd:element name="data-nascimento" type="xsd:date"/>
+          <xsd:element name="data-inclusao" type="xsd:date"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="StatusType">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:int"/>
+          <xsd:element name="descricao" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PedidoType">
+        <xsd:sequence>
+          <xsd:element name="id" type="xsd:int"/>
+          <xsd:element name="data-pedido" type="xsd:date"/>
+          <xsd:element name="cliente" type="tns:ClienteType"/>
+          <xsd:element name="status" type="tns:StatusType"/>
+          <xsd:element name="itens-pedido" type="tns:ArrayOfPedidoItemType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfPedidoItemType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="item-pedido" type="tns:PedidoItemType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ConsultarPedidoRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="pedido-id" type="xsd:int"/>
+            <xsd:element name="data-pedido" type="xsd:date"/>
+            <xsd:element name="cliente-id" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ConsultarPedidoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="pedido" type="tns:PedidoType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ConsultarPedidoResponse">
+    <wsdl:part element="tns:ConsultarPedidoResponse" name="ConsultarPedidoResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ConsultarPedidoRequest">
+    <wsdl:part element="tns:ConsultarPedidoRequest" name="ConsultarPedidoRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="PedidoPort">
+    <wsdl:operation name="ConsultarPedido">
+      <wsdl:input message="tns:ConsultarPedidoRequest" name="ConsultarPedidoRequest"></wsdl:input>
+      <wsdl:output message="tns:ConsultarPedidoResponse" name="ConsultarPedidoResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PedidoPortSoap11" type="tns:PedidoPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ConsultarPedido">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="ConsultarPedidoRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="ConsultarPedidoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PedidoPortService">
+    <wsdl:port binding="tns:PedidoPortSoap11" name="PedidoPortSoap11">
+      <soap:address location="http://localhost:8080/service/ConsultarPedido"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/service/ConsultarPedido</con:endpoint></con:endpoints><con:operation id="4017add7-1eaa-4a66-943e-c3f9c11df19b" isOneWay="false" action="" name="ConsultarPedido" bindingOperationName="ConsultarPedido" type="Request-Response" outputName="ConsultarPedidoResponse" inputName="ConsultarPedidoRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="eef5a5a8-b985-4e1c-b583-da32ece80d49" name="consultaPedidoPorId"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/service/ConsultarPedido</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://www.eicon.com.br/EBO/Eicon/v1">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v1:ConsultarPedidoRequest>\r
+         <v1:pedido-id>1</v1:pedido-id>\r
+      </v1:ConsultarPedidoRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eicon.com.br/EBO/Eicon/v1/PedidoPort/ConsultarPedidoRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="97e15749-efcc-4129-8dce-ee1b3f9cc6ed" name="consultaPedidoPorDataPedido"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/service/ConsultarPedido</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://www.eicon.com.br/EBO/Eicon/v1">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v1:ConsultarPedidoRequest>\r
+         <v1:data-pedido>2019-10-05</v1:data-pedido>\r
+      </v1:ConsultarPedidoRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eicon.com.br/EBO/Eicon/v1/PedidoPort/ConsultarPedidoRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="ac8e304e-2972-4e9c-b7d3-540a042058c3" name="consultaPedidoPorClienteId"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/service/ConsultarPedido</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://www.eicon.com.br/EBO/Eicon/v1">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v1:ConsultarPedidoRequest>\r
+         <v1:cliente-id>5</v1:cliente-id>\r
+      </v1:ConsultarPedidoRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.eicon.com.br/EBO/Eicon/v1/PedidoPort/ConsultarPedidoRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

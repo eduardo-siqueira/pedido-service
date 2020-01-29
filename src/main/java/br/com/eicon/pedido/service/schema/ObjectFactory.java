@@ -2,7 +2,7 @@
 // Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.7 
 // Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
-// Gerado em: 2020.01.29 às 12:31:33 AM BRST 
+// Gerado em: 2020.01.29 às 08:58:10 PM BRST 
 //
 
 
@@ -45,11 +45,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link PedidoType }
+     * Create an instance of {@link ArrayOfPedidoType }
      * 
      */
-    public PedidoType createPedidoType() {
-        return new PedidoType();
+    public ArrayOfPedidoType createArrayOfPedidoType() {
+        return new ArrayOfPedidoType();
     }
 
     /**
@@ -58,6 +58,14 @@ public class ObjectFactory {
      */
     public ConsultarPedidoRequest createConsultarPedidoRequest() {
         return new ConsultarPedidoRequest();
+    }
+
+    /**
+     * Create an instance of {@link PedidoType }
+     * 
+     */
+    public PedidoType createPedidoType() {
+        return new PedidoType();
     }
 
     /**

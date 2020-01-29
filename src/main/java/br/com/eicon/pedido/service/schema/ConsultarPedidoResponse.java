@@ -2,7 +2,7 @@
 // Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.7 
 // Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
-// Gerado em: 2020.01.29 às 12:31:33 AM BRST 
+// Gerado em: 2020.01.29 às 08:58:10 PM BRST 
 //
 
 
@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="pedido" type="{http://www.eicon.com.br/EBO/Eicon/v1}PedidoType"/>
+ *         &lt;element name="pedidos" type="{http://www.eicon.com.br/EBO/Eicon/v1}ArrayOfPedidoType"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -36,36 +36,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "pedido"
+    "pedidos"
 })
 @XmlRootElement(name = "ConsultarPedidoResponse")
 public class ConsultarPedidoResponse {
 
     @XmlElement(required = true)
-    protected PedidoType pedido;
+    protected ArrayOfPedidoType pedidos;
 
     /**
-     * Obtém o valor da propriedade pedido.
+     * Obtém o valor da propriedade pedidos.
      * 
      * @return
      *     possible object is
-     *     {@link PedidoType }
+     *     {@link ArrayOfPedidoType }
      *     
      */
-    public PedidoType getPedido() {
-        return pedido;
+    public ArrayOfPedidoType getPedidos() {
+        return pedidos;
     }
 
     /**
-     * Define o valor da propriedade pedido.
+     * Define o valor da propriedade pedidos.
      * 
      * @param value
      *     allowed object is
-     *     {@link PedidoType }
+     *     {@link ArrayOfPedidoType }
      *     
      */
-    public void setPedido(PedidoType value) {
-        this.pedido = value;
+    public void setPedidos(ArrayOfPedidoType value) {
+        this.pedidos = value;
     }
 
 }

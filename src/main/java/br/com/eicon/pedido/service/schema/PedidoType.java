@@ -2,12 +2,13 @@
 // Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.7 
 // Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
-// Gerado em: 2020.01.29 às 12:31:33 AM BRST 
+// Gerado em: 2020.01.29 às 08:58:10 PM BRST 
 //
 
 
 package br.com.eicon.pedido.service.schema;
 
+import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -26,11 +27,11 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}integer"/>
  *         &lt;element name="data-pedido" type="{http://www.w3.org/2001/XMLSchema}date"/>
  *         &lt;element name="cliente" type="{http://www.eicon.com.br/EBO/Eicon/v1}ClienteType"/>
  *         &lt;element name="status" type="{http://www.eicon.com.br/EBO/Eicon/v1}StatusType"/>
- *         &lt;element name="itens-pedido" type="{http://www.eicon.com.br/EBO/Eicon/v1}ArrayOfPedidoItemType"/>
+ *         &lt;element name="itens" type="{http://www.eicon.com.br/EBO/Eicon/v1}ArrayOfPedidoItemType"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -45,11 +46,12 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "dataPedido",
     "cliente",
     "status",
-    "itensPedido"
+    "itens"
 })
 public class PedidoType {
 
-    protected int id;
+    @XmlElement(required = true)
+    protected BigInteger id;
     @XmlElement(name = "data-pedido", required = true)
     @XmlSchemaType(name = "date")
     protected XMLGregorianCalendar dataPedido;
@@ -57,22 +59,30 @@ public class PedidoType {
     protected ClienteType cliente;
     @XmlElement(required = true)
     protected StatusType status;
-    @XmlElement(name = "itens-pedido", required = true)
-    protected ArrayOfPedidoItemType itensPedido;
+    @XmlElement(required = true)
+    protected ArrayOfPedidoItemType itens;
 
     /**
      * Obtém o valor da propriedade id.
      * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
      */
-    public int getId() {
+    public BigInteger getId() {
         return id;
     }
 
     /**
      * Define o valor da propriedade id.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
      */
-    public void setId(int value) {
+    public void setId(BigInteger value) {
         this.id = value;
     }
 
@@ -149,27 +159,27 @@ public class PedidoType {
     }
 
     /**
-     * Obtém o valor da propriedade itensPedido.
+     * Obtém o valor da propriedade itens.
      * 
      * @return
      *     possible object is
      *     {@link ArrayOfPedidoItemType }
      *     
      */
-    public ArrayOfPedidoItemType getItensPedido() {
-        return itensPedido;
+    public ArrayOfPedidoItemType getItens() {
+        return itens;
     }
 
     /**
-     * Define o valor da propriedade itensPedido.
+     * Define o valor da propriedade itens.
      * 
      * @param value
      *     allowed object is
      *     {@link ArrayOfPedidoItemType }
      *     
      */
-    public void setItensPedido(ArrayOfPedidoItemType value) {
-        this.itensPedido = value;
+    public void setItens(ArrayOfPedidoItemType value) {
+        this.itens = value;
     }
 
 }

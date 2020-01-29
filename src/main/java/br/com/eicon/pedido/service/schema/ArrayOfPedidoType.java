@@ -16,16 +16,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java de ArrayOfPedidoItemType complex type.
+ * <p>Classe Java de ArrayOfPedidoType complex type.
  * 
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * 
  * <pre>
- * &lt;complexType name="ArrayOfPedidoItemType">
+ * &lt;complexType name="ArrayOfPedidoType">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="item" type="{http://www.eicon.com.br/EBO/Eicon/v1}PedidoItemType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="pedido" type="{http://www.eicon.com.br/EBO/Eicon/v1}PedidoType" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -35,40 +35,40 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ArrayOfPedidoItemType", propOrder = {
-    "item"
+@XmlType(name = "ArrayOfPedidoType", propOrder = {
+    "pedido"
 })
-public class ArrayOfPedidoItemType {
+public class ArrayOfPedidoType {
 
-    protected List<PedidoItemType> item;
+    protected List<PedidoType> pedido;
 
     /**
-     * Gets the value of the item property.
+     * Gets the value of the pedido property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the item property.
+     * This is why there is not a <CODE>set</CODE> method for the pedido property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getItem().add(newItem);
+     *    getPedido().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link PedidoItemType }
+     * {@link PedidoType }
      * 
      * 
      */
-    public List<PedidoItemType> getItem() {
-        if (item == null) {
-            item = new ArrayList<PedidoItemType>();
+    public List<PedidoType> getPedido() {
+        if (pedido == null) {
+            pedido = new ArrayList<PedidoType>();
         }
-        return this.item;
+        return this.pedido;
     }
 
 }

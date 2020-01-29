@@ -2,12 +2,13 @@
 // Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.7 
 // Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
-// Gerado em: 2020.01.29 às 12:31:33 AM BRST 
+// Gerado em: 2020.01.29 às 08:58:10 PM BRST 
 //
 
 
 package br.com.eicon.pedido.service.schema;
 
+import java.math.BigInteger;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -24,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}integer"/>
  *         &lt;element name="descricao" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="ativo" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *       &lt;/sequence>
@@ -43,7 +44,8 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class ProdutoType {
 
-    protected int id;
+    @XmlElement(required = true)
+    protected BigInteger id;
     @XmlElement(required = true)
     protected String descricao;
     protected boolean ativo;
@@ -51,16 +53,24 @@ public class ProdutoType {
     /**
      * Obtém o valor da propriedade id.
      * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
      */
-    public int getId() {
+    public BigInteger getId() {
         return id;
     }
 
     /**
      * Define o valor da propriedade id.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
      */
-    public void setId(int value) {
+    public void setId(BigInteger value) {
         this.id = value;
     }
 
